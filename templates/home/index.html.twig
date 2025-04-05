@@ -1,0 +1,249 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réseau Social - Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+   
+{% endblock %}
+
+{% block body %}
+    <!-- Barre de navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="{{ asset('images/Logo.png') }}" alt="Logo Réseau Social">
+        </div>
+
+        <div class="toggle-menu" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <nav>
+            <ul id="menu">
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="#">Messages</a></li>
+                <li>
+                    <a href="#">Profil</a>
+                    <ul>
+                        <li><a href="#">Paramètres</a></li>
+                        <li><a href="#">Se déconnecter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Barre de recherche -->
+    <div class="position">
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher des publications...">
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <section class="posts">
+            <!-- Post 1 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="{{ asset('images/photo_progil_prince.md.png') }}" alt="Prince MD" class="avatar">
+                    <div>
+                        <span class="username">Prince MD</span>
+                        <div class="location-time">
+                            <span>Paris, France • 14:30</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{ asset('images/portfolio_phantom.png') }}" alt="Post de Prince MD" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)">❤️ 248</button>
+                    <button onclick="toggleComments(this)">💬 56</button>
+                    <img src="{{ asset('images/bookmark.png') }}" class="bookmark" onclick="toggleBookmark(this)">
+                </div>
+                <div class="comment-section">
+                    <input type="text" placeholder="Ajouter un commentaire..." onkeypress="addComment(event, this)">
+                    <div class="comments">
+                        <div class="comment"><strong>User1</strong> Super publication !</div>
+                        <div class="comment"><strong>User2</strong> J'adore 😍</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="{{ asset('images/store.png') }}" alt="Bell-Alexander" class="avatar">
+                    <div>
+                        <span class="username">Bell-Alexander</span>
+                        <div class="location-time">
+                            <span>Massy, France • 22:30</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{ asset('images/pink_shoes.png') }}" alt="Post de Bell-Alexander" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)">❤️ 189</button>
+                    <button onclick="toggleComments(this)">💬 42</button>
+                    <img src="{{ asset('images/bookmark.png') }}" class="bookmark" onclick="toggleBookmark(this)">
+                </div>
+                <div class="comment-section">
+                    <input type="text" placeholder="Ajouter un commentaire..." onkeypress="addComment(event, this)">
+                    <div class="comments">
+                        <div class="comment"><strong>User3</strong> Très stylé !</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="{{ asset('images/stormtrooper.png') }}" alt="Franck Evan" class="avatar">
+                    <div>
+                        <span class="username">Franck Evan</span>
+                        <div class="location-time">
+                            <span>Noisy Le-Sec, France • 08:30</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{ asset('images/shoes_nike.png') }}" alt="Post de Franck Evan" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)">❤️ 312</button>
+                    <button onclick="toggleComments(this)">💬 78</button>
+                    <img src="{{ asset('images/bookmark.png') }}" class="bookmark" onclick="toggleBookmark(this)">
+                </div>
+                <div class="comment-section">
+                    <input type="text" placeholder="Ajouter un commentaire..." onkeypress="addComment(event, this)">
+                </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="{{ asset('images/Music.png') }}" alt="Diarra Ben" class="avatar">
+                    <div>
+                        <span class="username">Diarra Ben</span>
+                        <div class="location-time">
+                            <span>Créteil, France • 21:36</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{ asset('images/Messi.png') }}" alt="Post de Diarra Ben" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)">❤️ 421</button>
+                    <button onclick="toggleComments(this)">💬 93</button>
+                    <img src="{{ asset('images/bookmark.png') }}" class="bookmark" onclick="toggleBookmark(this)">
+                </div>
+                <div class="comment-section">
+                    <input type="text" placeholder="Ajouter un commentaire..." onkeypress="addComment(event, this)">
+                </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="{{ asset('images/nike_fantom_black.png') }}" alt="Vamsleclean" class="avatar">
+                    <div>
+                        <span class="username">Vamsleclean</span>
+                        <div class="location-time">
+                            <span>Paris, France • 14:30</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{ asset('images/post_last.jpg') }}" alt="Post de Vamsleclean" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)">❤️ 156</button>
+                    <button onclick="toggleComments(this)">💬 34</button>
+                    <img src="{{ asset('images/bookmark.png') }}" class="bookmark" onclick="toggleBookmark(this)">
+                </div>
+                <div class="comment-section">
+                    <input type="text" placeholder="Ajouter un commentaire..." onkeypress="addComment(event, this)">
+                </div>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="{{ asset('images/Notorious.png') }}" alt="Notorious" class="avatar">
+                    <div>
+                        <span class="username">Notorious</span>
+                        <div class="location-time">
+                            <span>New York, USA • 00:36</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{ asset('images/oeil IA.png') }}" alt="Post de Notorious" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)">❤️ 528</button>
+                    <button onclick="toggleComments(this)">💬 127</button>
+                    <img src="{{ asset('images/bookmark.png') }}" class="bookmark" onclick="toggleBookmark(this)">
+                </div>
+                <div class="comment-section">
+                    <input type="text" placeholder="Ajouter un commentaire..." onkeypress="addComment(event, this)">
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="{{ path('app_home') }}" class="footer-icon">🏠</a>
+            <a href="#" class="footer-icon">🔍</a>
+            <a href="#" class="footer-icon">✚</a>
+            <a href="#" class="footer-icon">❤️</a>
+            <a href="#" class="footer-icon">👤</a>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+        }
+
+        function likePost(button) {
+            const likes = parseInt(button.textContent.match(/\d+/)[0]);
+            if (button.classList.contains('liked')) {
+                button.textContent = `❤️ ${likes - 1}`;
+                button.classList.remove('liked');
+            } else {
+                button.textContent = `❤️ ${likes + 1}`;
+                button.classList.add('liked');
+            }
+        }
+
+        function toggleComments(button) {
+            const commentSection = button.closest('.post').querySelector('.comment-section');
+            commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addComment(event, input) {
+            if (event.key === 'Enter' && input.value.trim() !== '') {
+                const commentsDiv = input.nextElementSibling;
+                const newComment = document.createElement('div');
+                newComment.className = 'comment';
+                newComment.innerHTML = `<strong>Vous</strong> ${input.value.trim()}`;
+                commentsDiv.appendChild(newComment);
+                input.value = '';
+                
+                // Mettre à jour le compteur de commentaires
+                const commentBtn = input.closest('.post').querySelector('button:nth-child(2)');
+                const count = parseInt(commentBtn.textContent.match(/\d+/)[0]);
+                commentBtn.textContent = `💬 ${count + 1}`;
+            }
+        }
+
+        function toggleBookmark(bookmark) {
+            bookmark.classList.toggle('bookmarked');
+            if (bookmark.classList.contains('bookmarked')) {
+                bookmark.style.opacity = '1';
+            } else {
+                bookmark.style.opacity = '0.6';
+            }
+        }
+    </script>
+{% endblock %}

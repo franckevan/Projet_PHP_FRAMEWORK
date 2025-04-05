@@ -1,3 +1,292 @@
-body {
-    background-color: skyblue;
-}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corps de la page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Barre de navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo img {
+            width: 120px;
+        }
+
+        /* Barre de recherche */
+        .search-bar input {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Menu de navigation */
+        .navbar nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar nav ul li {
+            position: relative;
+        }
+
+        .navbar nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+        }
+
+        .navbar nav ul li a:hover {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        /* Navigation dépliable */
+        .navbar nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 180px;
+        }
+
+        .navbar nav ul li:hover > ul {
+            display: block;
+        }
+
+        .navbar nav ul li ul li a {
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+        }
+        .position {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Bouton de menu sur mobile */
+        .toggle-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Contenu principal .. pmd .*/
+        .main-content {
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+
+        /* Section des posts */
+        .posts {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .post-header {
+            display: flex;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .post-header .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .post-header .username {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .post-header .location-time {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .post-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 15px;
+            border-top: 1px solid #eee;
+            background-color: #fafafa;
+        }
+
+        .post-actions button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        .post-actions button:hover {
+            color: #ed4956;
+        }
+
+        /* Bookmark icon styles */
+        .post-actions .bookmark {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .post-actions .bookmark:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* Commentaire Section */
+        .comment-section {
+            padding: 10px 15px;
+            border-top: 1px solid #eee;
+            background-color: #fafafa;
+        }
+
+        .comment-section input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .comments {
+            margin-top: 15px;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        /* Animation et effets */
+        .post-image {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .post-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsivité */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+            }
+
+            .navbar nav ul li {
+                width: 100%;
+            }
+
+            .navbar nav ul li a {
+                padding: 15px;
+            }
+
+            .toggle-menu {
+                display: block;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            .navbar nav ul.active {
+                display: block;
+            }
+
+            .search-bar input {
+                width: 200px;
+                margin: 10px 0;
+            }
+
+            .posts {
+                padding: 10px;
+            }
+
+            .post {
+                margin: 10px 0;
+            }
+        }
+        /* Footer fixe */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            
+        }
+
+        .footer-content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-icon {
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-icon:hover {
+            color: #ed4956;
+            transform: scale(1.2);
+        }
